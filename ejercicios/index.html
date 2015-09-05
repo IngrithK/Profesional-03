@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>ejercicios</title>	
+<script src = "galones.js" type="text/javascript">
+</script>	
+<script src = "temperatura.js" type="text/javascript">
+</script>	
+<script src = "peso.js" type="text/javascript">
+</script>	
+<script src = "area.js" type="text/javascript">
+</script>	
+<script src = "vocales.js" type="text/javascript">
+</script> 
+
+<script src="http://use.edgefonts.net/almendra:n4:default.js" type="text/javascript"></script> 
+<link rel="stylesheet" type="text/css" href="estilos.css">
+
+<style type="estilos.css">
+body{	
+background-color: black;	font-size: 16px;	color: #0E0E0E;	text-align: center;
+}</style></head> 
+<body>
+<form id="form1" name="form1" method="post">
+  <table width="360" height="300">
+    <tbody>
+      <tr>
+       <td width="450"><h1>CONVERSION</h1></td>
+      <tr>
+      <td ><span style="text-align: center"><font class="entrada"> <strong>numero de galones:</strong></font> <strong><br>
+      <input type="text" id="numero" class="galones">
+       </strong></span></tr>
+       <tr>
+       <td><input type="button"id="boton" value="Convertir" onClick="Convertir()"></td>
+       </tr>
+    </tbody>
+  </table>
+  <table width="407" height="352">
+    <tbody>
+      <tr>
+       <td width="257"><h1> GRADOS </h1></td>
+      <tr>
+      <td ><span style="text-align: center"><font class="entrada"> <strong>Grados</strong></font>
+      <strong> <br>
+      <input  type="text" id="grados" class="grados">
+       </td>
+      
+      <td width="138"> <span style="text-align: center"><font class="entrada"></font><td>
+       </tr>
+
+       <tr>
+        <td>
+      <strong>GradosTipo de grado (k,f,c)</strong><strong>
+        <input type="text" id="Centigrados" class="Centigrados">
+</strong></td>
+      
+       <td><p>
+         <input type="button" id="boton" value="Convertir" onClick="ConvertirC()">
+       </p></td>
+       <td>&nbsp;</td>
+       </tr>
+    </tbody>
+  </table>
+
+</form>
+<form id="form2" name="form" method="post">
+  <table width="348" height="251">
+    <tbody>
+      <tr>
+       <td width="331"><h1> PESO EN LA LUNA </h1></td></tr>
+      <tr><td></td> </tr>
+    <td ><span style="text-align: center"><font class="entrada"><strong>PESO</strong></font>
+      <strong> <br>
+      <input type="text" id="peso" class="peso">
+             <input type="button" id="boton" value="Peso" onClick="Peso() "></td>
+      </tr>
+       <tr width="10px">
+       </tr>
+       <tr>
+       <td style="width: 100px">
+       </p>
+         <p>&nbsp;</p></td><p>
+       </p>
+         <p>&nbsp;</p><td width="-2"></td>
+       <td width="10" >&nbsp;</td>
+       </tr>
+    </tbody>
+  </table>
+  <table width="398" height="349">
+    <tbody>
+      <tr>
+       <td width="351"><h1> AREA DE UN ELEMENTO </h1></td>
+      <tr>
+      <td ><span style="text-align: center"><font class="entrada"><strong>Elemento: a= triangulo, b= cuadrado, c=circulo</strong></font>
+      <strong> <br>
+      <input type="text" id="elemento" class="elemento">
+       </td>
+       <td><p>
+         <input type="button" id="boton" value="Area" onClick="Area() ">
+       </p>
+         <p>&nbsp;</p></td>
+       <td width="10">&nbsp;</td>
+       </tr>
+    </tbody>
+  </table>
+
+  </form>
+<form id="form3" name="form" method="post">
+  <table width="398" height="349">
+    <tbody>
+      <tr>
+       <td width="351"><h1> CONTADOR DE VOCALES </h1></td>
+      <tr>
+      <td ><span style="text-align: center"><font class="entrada"><strong>escriba una cadena de texto</strong></font>
+      <strong> <br>
+      <input type="text" id="frase" class="frase"> 
+       </td>
+      </tr>
+       <tr>
+       <td><p>
+         <input type="button" id="boton" value="Vocales" onClick="Vocales() ">
+       </p>
+         <p>&nbsp;</p></td>
+       <td width="10">&nbsp;</td>
+       </tr>
+    </tbody>
+  </table>
+
+  </form>
+
+
+</body>
+</html>
+
+
+      
