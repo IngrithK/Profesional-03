@@ -1,0 +1,21 @@
+var nomDiv = function(id) 
+{ 
+return document.getElementById(id);
+} 
+function Conver(isCodificar) {
+
+var grado = nomDiv("grado").value;
+
+
+	
+	if (isCodificar)
+	{
+		kelvin= grado+273;
+	
+	}else
+	{
+		faren= 32+(1.8*grado);
+	}	
+}
+
+ 
