@@ -11,14 +11,15 @@ background: -ms-linear-gradient(45deg, rgba(169,3,41,1) 0%, rgba(149,2,36,1) 20%
 background: linear-gradient(45deg, rgba(169,3,41,1) 0%, rgba(149,2,36,1) 20%, rgba(143,2,34,0.9) 26%, rgba(143,2,34,0.48) 50%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#8f0222', GradientType=1 );
 }
-a,
-a:link {
-    outline: none;
+  h1 {
+    
+    font-size: 1.5em;
 }
-h1 {
-    font-weight: 100;
-    font-size: 72px;
-    margin: 20px 0;
+ul {
+    padding: 10px;
+}
+.done {
+    text-decoration: line-through;
 }
 #container {
     width: 800px;
