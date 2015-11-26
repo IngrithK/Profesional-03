@@ -1,0 +1,27 @@
+{
+  "name": "trivia",
+  "version": "1.0.0",
+  "description": "trivia udec",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "debug": "^2.2.0",
+    "async": "^0.2.10",
+    "express": "^4.13.3",
+    "ejs": "^2.3.4",
+    "mysql": "^2.9.0",
+    "consolidate": "^0.13.1",
+    "method-override": "^2.3.5",
+    "restify": "^4.0.3",
+    "socket.io": "^0.9.17",
+    "serve-favicon": "^2.3.0",
+    "swig": "^1.4.2",
+    "traceur": "^0.0.92"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "katherinne",
+  "license": "ISC"
+}
