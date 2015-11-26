@@ -1,53 +1,48 @@
-var mysql   = 	require('mysql'),
-	express = 	require("express"),
-	app		= 	express(),
-	cons 	=	require("consolidate"),
-	bodyParser 	= require('body-parser')
-	puerto 		= 	3000;
-	
-///consolidate integra swig con express...
-app.engine("html", cons.swig); //Template engine...
-app.set("view engine", "html");
-app.set("views", __dirname + "/vistas");
-app.use(express.static('public'));
+var express 	= 	require("express"),
+	app			= 	express(),
+	cons 		=	require("consolidate"),
+	puerto 		= 	process.env.PORT || 8081,
+	bodyParser 	= 	require('body-parser'),
+	mysql   	= 	require('mysql');
 
-//Para indicar que se envía y recibe información por medio de Json...
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-
-
-var conection = mysql.createConnection({
-  host     	: 'localhost',
+//Realizar la conexión a la base de datos Mysql.....
+var conexion = mysql.createConnection({
+  host     	: '127.0.0.1',
   user     	: 'root',
   password 	: '',
   database 	: 'trivia'
 });
-conection.connect();
+conexion.connect();
 
-
+//consolidate integra swig con express...
+app.engine("html", cons.swig); //Template engine...
+app.set("view engine", "html");
+app.set("views", __dirname + "/vistas");
+app.use(express.static('public'));
+//Para indicar que se envía y recibe información por medio de Json...
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.get("/", function(req, res)
 {
 	res.render("index");
 });
 //Servicios REST...
-app.get('getQuestions', function(req, res)
+app.get('/getQuestions', function(req, res)
 {
-	// genera todas las preguntas de manera aleatoria
-	var sql = "select Id, Pregunta, opcion1, opcion2, opcion3, opcion4 from Preguntas order by rand()";
+	//Traer todas las preguntas de manera aleatoria
+	var sql = "select numpregunta, pregunta, opcion1, opcion2, opcion3, opcion4 from preguntas order by rand()";
 	queryMysql(sql, function(err, data){
 		if (err) throw err;
 		res.json(data);
 	});
 });
 
-//respuesta correcta
+//valida la respuesta
 app.post('/isValid', function (req, res)
 {
-	//identifica la respuesta
-	var sql = "SELECT correcta from Preguntas where Id = " + req.body.id;
-	var respuestaUsuario= req.body.respuesta;
-	
-	
+	//se busca la respuesta correcta
+	var sql = "select correcta from preguntas where numpregunta = " + req.body.numPregunta;
+	var respuestaUsuario = req.body.respuesta;
 	queryMysql(sql, function(err, data)
 	{
 		if (err) throw err;
@@ -58,24 +53,23 @@ app.post('/isValid', function (req, res)
 	});
 });
 
-
+//Para cualquier url que no cumpla la condición...
 app.get("*", function(req, res)
 {
 	res.status(404).send("Página no encontrada :( en el momento");
 });
-
+// realiza la consulta
 var queryMysql = function(sql, callback)
 {
-	conection.query(sql, function(err, rows, fields)
+	conexion.query(sql, function(err, rows, fields)
 	{
 		if (err) throw err;
 		callback(err, rows);
 	});
-	
-connection.end();
 };
 app.listen(puerto);
 console.log("Express server iniciado en el " + puerto);
+
 /*
 
 connection.connect(function(error){
